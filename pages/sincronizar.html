@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sincronizar Datos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="text-2xl font-bold text-indigo-600">Sistema de Votaciones</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="registro.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Registro</a>
+                    <a href="votacion.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Votar</a>
+                    <a href="resultados.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Resultados</a>
+                    <a href="admin.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Admin</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <div class="bg-white rounded-lg shadow-xl p-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Sincronizar Datos con API</h2>
+            
+            <div class="mb-8">
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                    <p class="text-blue-800">
+                        <strong>Instrucciones:</strong> Esta herramienta exporta los datos de localStorage a archivos JSON 
+                        que la API puede leer. Copia el contenido de cada cuadro y guárdalo en el archivo correspondiente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Candidatos -->
+                <div class="border border-gray-300 rounded-lg p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-xl font-bold text-gray-900">Candidatos</h3>
+                        <button onclick="copiarTexto('candidatosData')" 
+                                class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                            Copiar
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Guardar en: <code class="bg-gray-100 px-2 py-1 rounded">data/candidatos.json</code></p>
+                    <textarea id="candidatosData" readonly 
+                              class="w-full h-40 p-3 bg-gray-50 border border-gray-300 rounded-lg font-mono text-sm"></textarea>
+                </div>
+
+                <!-- Votantes -->
+                <div class="border border-gray-300 rounded-lg p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-xl font-bold text-gray-900">Votantes</h3>
+                        <button onclick="copiarTexto('votantesData')" 
+                                class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                            Copiar
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Guardar en: <code class="bg-gray-100 px-2 py-1 rounded">data/votantes.json</code></p>
+                    <textarea id="votantesData" readonly 
+                              class="w-full h-40 p-3 bg-gray-50 border border-gray-300 rounded-lg font-mono text-sm"></textarea>
+                </div>
+
+                <!-- Votos -->
+                <div class="border border-gray-300 rounded-lg p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <h3 class="text-xl font-bold text-gray-900">Votos</h3>
+                        <button onclick="copiarTexto('votosData')" 
+                                class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+                            Copiar
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">Guardar en: <code class="bg-gray-100 px-2 py-1 rounded">data/votos.json</code></p>
+                    <textarea id="votosData" readonly 
+                              class="w-full h-40 p-3 bg-gray-50 border border-gray-300 rounded-lg font-mono text-sm"></textarea>
+                </div>
+
+                <!-- Estadísticas -->
+                <div class="bg-green-50 border border-green-300 rounded-lg p-4">
+                    <h3 class="text-xl font-bold text-green-900 mb-3">Estadísticas</h3>
+                    <div id="estadisticas" class="grid grid-cols-3 gap-4 text-center"></div>
+                </div>
+
+                <!-- Botón de sincronización automática -->
+                <div class="text-center bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg border-2 border-green-300">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">🔄 Sincronización Automática</h3>
+                    <p class="text-gray-700 mb-4">Sincroniza todos los datos con la API en un solo clic</p>
+                    <button id="btnSincronizar" onclick="sincronizarAutomatico()" 
+                            class="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 transition text-lg font-semibold">
+                        🔄 Sincronizar con API
+                    </button>
+                    <p class="text-sm text-gray-600 mt-2">Asegúrate de que el servidor API esté corriendo en http://localhost:3000</p>
+                    <div id="mensajeSincronizacion" class="hidden mt-4"></div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-gray-500 mb-4">- O -</p>
+                </div>
+
+                <!-- Botón de descarga manual -->
+                <div class="text-center">
+                    <button onclick="descargarTodos()" 
+                            class="bg-indigo-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition text-lg font-semibold">
+                        📥 Descargar Archivos JSON (Manual)
+                    </button>
+                    <p class="text-sm text-gray-600 mt-2">Los archivos se descargarán. Muévelos a la carpeta <code class="bg-gray-100 px-2 py-1 rounded">data/</code></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/sincronizar.js"></script>
+</body>
+</html>

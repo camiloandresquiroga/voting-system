@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1773951702149,
+    "nombre": "Candidato honesto 1",
+    "partido": "Partido verde",
+    "foto": "https://randomuser.me/api/portraits/men/15.jpg",
+    "votos": 1,
+    "fechaRegistro": "2026-03-19T20:21:42.149Z"
+  },
+  {
+    "id": 1773951842567,
+    "nombre": "Candidato que si trabaja",
+    "partido": "azul",
+    "foto": "https://randomuser.me/api/portraits/men/1.jpg",
+    "votos": 0,
+    "fechaRegistro": "2026-03-19T20:24:02.567Z"
+  },
+  {
+    "id": 1773951990607,
+    "nombre": "La solución está aquí",
+    "partido": "blanco",
+    "foto": "https://randomuser.me/api/portraits/women/2.jpg",
+    "votos": 0,
+    "fechaRegistro": "2026-03-19T20:26:30.607Z"
+  }
+]

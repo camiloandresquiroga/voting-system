@@ -1,0 +1,9 @@
+[
+  {
+    "cedula": "123456789",
+    "nombre": "Pepito Perez",
+    "email": "test@mail.com",
+    "fechaRegistro": "2026-03-19T20:15:26.899Z",
+    "haVotado": true
+  }
+]

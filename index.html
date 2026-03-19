@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Votaciones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-indigo-600">Sistema de Votaciones</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="pages/registro.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Registro</a>
+                    <a href="pages/votacion.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Votar</a>
+                    <a href="pages/resultados.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Resultados</a>
+                    <a href="pages/sincronizar.html" class="text-gray-700 hover:text-indigo-600 px-3 py-2">Sincronizar</a>
+                    <a href="pages/admin.html" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Admin</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center">
+            <h2 class="text-4xl font-bold text-gray-900 mb-4">Bienvenido al Sistema de Votaciones</h2>
+            <p class="text-xl text-gray-600 mb-8">Participa en el proceso democrático</p>
+            
+            <div class="grid md:grid-cols-3 gap-6 mt-12">
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="text-indigo-600 text-5xl mb-4">📝</div>
+                    <h3 class="text-xl font-bold mb-2">Regístrate</h3>
+                    <p class="text-gray-600 mb-4">Ingresa tu cédula para poder votar</p>
+                    <a href="pages/registro.html" class="inline-block bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700">Ir a Registro</a>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="text-indigo-600 text-5xl mb-4">🗳️</div>
+                    <h3 class="text-xl font-bold mb-2">Vota</h3>
+                    <p class="text-gray-600 mb-4">Elige tu candidato preferido</p>
+                    <a href="pages/votacion.html" class="inline-block bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700">Ir a Votar</a>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
+                    <div class="text-indigo-600 text-5xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-2">Resultados</h3>
+                    <p class="text-gray-600 mb-4">Consulta los resultados en tiempo real</p>
+                    <a href="pages/resultados.html" class="inline-block bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700">Ver Resultados</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
