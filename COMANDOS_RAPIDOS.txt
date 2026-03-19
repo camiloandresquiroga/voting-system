@@ -1,0 +1,160 @@
+═══════════════════════════════════════════════════════════════
+  COMANDOS RÁPIDOS - SISTEMA DE VOTACIONES
+═══════════════════════════════════════════════════════════════
+
+📦 INSTALACIÓN LOCAL
+────────────────────────────────────────────────────────────────
+npm install
+npm start
+
+Abre: http://localhost:3000
+
+
+🔍 VERIFICAR ANTES DE DESPLEGAR
+────────────────────────────────────────────────────────────────
+npm run check
+
+
+🚀 DESPLEGAR EN RAILWAY (PRIMERA VEZ)
+────────────────────────────────────────────────────────────────
+# 1. Inicializar Git
+git init
+git add .
+git commit -m "Sistema de Votaciones"
+
+# 2. Crear repo en GitHub y subir
+git remote add origin https://github.com/TU_USUARIO/sistema-votaciones.git
+git branch -M main
+git push -u origin main
+
+# 3. Ir a Railway
+# https://railway.app
+# → New Project → Deploy from GitHub → Seleccionar repo
+
+
+🔄 ACTUALIZAR DESPLIEGUE
+────────────────────────────────────────────────────────────────
+git add .
+git commit -m "Descripción del cambio"
+git push origin main
+
+# Railway se actualiza automáticamente
+
+
+🧪 PROBAR API LOCAL
+────────────────────────────────────────────────────────────────
+# Candidatos
+curl http://localhost:3000/api/candidatos
+
+# Estadísticas
+curl http://localhost:3000/api/estadisticas
+
+# Ranking
+curl http://localhost:3000/api/candidatos/ranking/votos
+
+
+🧪 PROBAR API EN RAILWAY
+────────────────────────────────────────────────────────────────
+# Reemplaza TU_URL con tu URL de Railway
+
+curl https://TU_URL.up.railway.app/api/candidatos
+curl https://TU_URL.up.railway.app/api/estadisticas
+
+
+📊 SINCRONIZAR DATOS
+────────────────────────────────────────────────────────────────
+# Opción 1: Desde la interfaz web
+# Abre: /pages/sincronizar.html
+# Click: "Sincronizar con API"
+
+# Opción 2: Con curl
+curl -X POST https://TU_URL.up.railway.app/api/sync/all \
+  -H "Content-Type: application/json" \
+  -d '{"candidatos":[],"votantes":[],"votos":[]}'
+
+
+🐛 DEBUGGING
+────────────────────────────────────────────────────────────────
+# Ver logs en Railway
+railway logs
+
+# Reiniciar servicio
+railway restart
+
+# Ver estado
+railway status
+
+
+📝 CREDENCIALES ADMIN
+────────────────────────────────────────────────────────────────
+Usuario: admin
+Contraseña: admin123
+
+
+🌐 URLS IMPORTANTES (LOCAL)
+────────────────────────────────────────────────────────────────
+Inicio:       http://localhost:3000/
+Registro:     http://localhost:3000/pages/registro.html
+Admin:        http://localhost:3000/pages/admin.html
+Votación:     http://localhost:3000/pages/votacion.html
+Resultados:   http://localhost:3000/pages/resultados.html
+Sincronizar:  http://localhost:3000/pages/sincronizar.html
+API:          http://localhost:3000/api/candidatos
+
+
+🌐 URLS IMPORTANTES (RAILWAY)
+────────────────────────────────────────────────────────────────
+Inicio:       https://TU_URL.up.railway.app/
+Registro:     https://TU_URL.up.railway.app/pages/registro.html
+Admin:        https://TU_URL.up.railway.app/pages/admin.html
+Votación:     https://TU_URL.up.railway.app/pages/votacion.html
+Resultados:   https://TU_URL.up.railway.app/pages/resultados.html
+Sincronizar:  https://TU_URL.up.railway.app/pages/sincronizar.html
+API:          https://TU_URL.up.railway.app/api/candidatos
+
+
+🔧 COMANDOS GIT ÚTILES
+────────────────────────────────────────────────────────────────
+# Ver estado
+git status
+
+# Ver historial
+git log --oneline
+
+# Deshacer último commit (mantener cambios)
+git reset --soft HEAD~1
+
+# Ver diferencias
+git diff
+
+
+💾 BACKUP DE DATOS
+────────────────────────────────────────────────────────────────
+# Descargar datos desde la interfaz
+# Abre: /pages/sincronizar.html
+# Click: "Descargar Archivos JSON"
+
+
+🧹 LIMPIAR Y REINICIAR
+────────────────────────────────────────────────────────────────
+# Limpiar node_modules
+rm -rf node_modules
+npm install
+
+# Limpiar localStorage (desde consola del navegador)
+localStorage.clear()
+
+
+📚 DOCUMENTACIÓN
+────────────────────────────────────────────────────────────────
+README.md                 - Documentación completa
+DEPLOY_RAILWAY.md         - Guía de despliegue detallada
+QUICK_START.md            - Inicio rápido
+RAILWAY_DEPLOY_STEPS.txt  - Pasos resumidos
+DEPLOYMENT_SUMMARY.md     - Resumen de despliegue
+API_DOCUMENTATION.md      - Documentación de API
+
+
+═══════════════════════════════════════════════════════════════
+  ¡LISTO PARA USAR!
+═══════════════════════════════════════════════════════════════

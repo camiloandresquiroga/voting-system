@@ -10,6 +10,7 @@ Sistema completo de votaciones con registro de votantes, gestión de candidatos,
 - [Uso del Sistema Web](#uso-del-sistema-web)
 - [API REST](#api-rest)
 - [Sincronización de Datos](#sincronización-de-datos)
+- [Despliegue en Railway](#despliegue-en-railway)
 - [Tecnologías](#tecnologías)
 
 ---
@@ -333,6 +334,53 @@ fetch('http://localhost:3000/api/sync/all', {
 })
 .then(res => res.json())
 .then(data => console.log('Sincronizado:', data));
+```
+
+---
+
+## 🚀 Despliegue en Railway
+
+Este proyecto está listo para desplegarse en Railway con un solo clic.
+
+### 📚 Documentación de Despliegue
+
+- **[RAILWAY_DEPLOY_STEPS.txt](RAILWAY_DEPLOY_STEPS.txt)** - Pasos rápidos y visuales
+- **[DEPLOY_RAILWAY.md](DEPLOY_RAILWAY.md)** - Guía completa paso a paso
+- **[DEPLOYMENT_SUMMARY.md](DEPLOYMENT_SUMMARY.md)** - Resumen técnico
+- **[QUICK_START.md](QUICK_START.md)** - Inicio rápido
+- **[COMANDOS_RAPIDOS.txt](COMANDOS_RAPIDOS.txt)** - Comandos útiles
+
+### ⚡ Despliegue Rápido
+
+```bash
+# 1. Verificar que todo esté listo
+npm run check
+
+# 2. Subir a GitHub
+git init
+git add .
+git commit -m "Sistema de Votaciones"
+git remote add origin https://github.com/TU_USUARIO/sistema-votaciones.git
+git push -u origin main
+
+# 3. Ir a Railway
+# https://railway.app → New Project → Deploy from GitHub
+```
+
+### ✅ Características del Despliegue
+
+- ✅ Frontend y API en un solo servicio
+- ✅ Configuración automática del puerto
+- ✅ CORS habilitado para producción
+- ✅ Detección automática de entorno (local/producción)
+- ✅ Reinicio automático en caso de fallos
+- ✅ Archivos estáticos servidos correctamente
+
+### 🌐 URL de Ejemplo
+
+Una vez desplegado, tu aplicación estará disponible en:
+```
+https://tu-proyecto.up.railway.app
 ```
 
 ---

@@ -56,7 +56,9 @@
     </div>
 
     <script>
-        const API_URL = 'http://localhost:3000';
+        const API_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000' 
+            : window.location.origin;
 
         function updateStatus(status, type = 'info') {
             const statusDiv = document.getElementById('apiStatus');

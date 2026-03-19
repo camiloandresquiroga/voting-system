@@ -1,0 +1,148 @@
+╔══════════════════════════════════════════════════════════════╗
+║     PASOS PARA DESPLEGAR EN RAILWAY - SISTEMA DE VOTACIONES  ║
+╚══════════════════════════════════════════════════════════════╝
+
+📋 REQUISITOS PREVIOS:
+   ✓ Cuenta en GitHub (gratis)
+   ✓ Cuenta en Railway.app (gratis)
+   ✓ Git instalado
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 PASO 1: VERIFICAR PROYECTO
+   
+   Ejecuta en la terminal:
+   
+   npm run check
+   
+   Si todo está ✅, continúa al siguiente paso.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📦 PASO 2: SUBIR A GITHUB
+
+   2.1. Inicializar Git (si no lo has hecho):
+   
+        git init
+        git add .
+        git commit -m "Sistema de Votaciones - Listo para Railway"
+
+   2.2. Crear repositorio en GitHub:
+        - Ve a https://github.com/new
+        - Nombre: sistema-votaciones
+        - Público o Privado (tu elección)
+        - NO marques "Initialize with README"
+        - Click "Create repository"
+
+   2.3. Conectar y subir:
+   
+        git remote add origin https://github.com/TU_USUARIO/sistema-votaciones.git
+        git branch -M main
+        git push -u origin main
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚂 PASO 3: DESPLEGAR EN RAILWAY
+
+   3.1. Acceder a Railway:
+        - Ve a https://railway.app
+        - Click "Login" → "Login with GitHub"
+        - Autoriza Railway
+
+   3.2. Crear Proyecto:
+        - Click "New Project"
+        - Selecciona "Deploy from GitHub repo"
+        - Busca "sistema-votaciones"
+        - Click en tu repositorio
+
+   3.3. Esperar Despliegue:
+        - Railway detectará automáticamente Node.js
+        - Instalará dependencias
+        - Iniciará el servidor
+        - Espera 2-3 minutos
+
+   3.4. Generar Dominio:
+        - Click en tu proyecto
+        - Ve a "Settings" → "Domains"
+        - Click "Generate Domain"
+        - Copia la URL generada
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ PASO 4: VERIFICAR FUNCIONAMIENTO
+
+   4.1. Abrir tu aplicación:
+        https://tu-proyecto.up.railway.app
+
+   4.2. Probar páginas:
+        ✓ Página principal: /
+        ✓ Registro: /pages/registro.html
+        ✓ Admin: /pages/admin.html (admin/admin123)
+        ✓ Votación: /pages/votacion.html
+        ✓ Resultados: /pages/resultados.html
+
+   4.3. Probar API:
+        https://tu-proyecto.up.railway.app/api/candidatos
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 ¡LISTO! TU APLICACIÓN ESTÁ EN LÍNEA
+
+   URL de tu app: https://tu-proyecto.up.railway.app
+   
+   Comparte esta URL con tus usuarios.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔄 ACTUALIZAR LA APLICACIÓN
+
+   Cada vez que hagas cambios:
+   
+   git add .
+   git commit -m "Descripción del cambio"
+   git push origin main
+   
+   Railway se actualizará automáticamente.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🐛 SOLUCIÓN DE PROBLEMAS
+
+   ❌ "Application failed to respond"
+      → Revisa los logs en Railway (pestaña "Deployments")
+      → Verifica que server.js use process.env.PORT
+
+   ❌ "Build failed"
+      → Asegúrate de que package.json esté correcto
+      → Verifica que node_modules esté en .gitignore
+
+   ❌ Página en blanco
+      → Espera 2-3 minutos después del despliegue
+      → Refresca la página (Ctrl+F5)
+
+   ❌ API no responde
+      → Verifica la URL: debe ser /api/candidatos
+      → Revisa CORS en la consola del navegador
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTACIÓN ADICIONAL
+
+   - README.md: Documentación completa
+   - DEPLOY_RAILWAY.md: Guía detallada de despliegue
+   - QUICK_START.md: Inicio rápido
+   - API_DOCUMENTATION.md: Documentación de API
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 CONSEJOS
+
+   ✓ Railway ofrece $5 de crédito gratis mensual
+   ✓ Este proyecto consume ~$3-4/mes
+   ✓ Los datos en archivos JSON son efímeros
+   ✓ Para datos persistentes, considera usar una base de datos
+   ✓ Cambia las credenciales admin en producción
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+¿Necesitas ayuda? Revisa DEPLOY_RAILWAY.md para más detalles.
